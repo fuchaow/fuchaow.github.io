@@ -23,23 +23,20 @@
     var NexT = window.NexT || {};
     var CONFIG = {"hostname":"fuchaow.gitee.io","root":"/","images":"/images","scheme":"Gemini","version":"8.2.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}};
   </script>
-<meta name="description" content="第一步：安装插件，在hexo根目录打开Git Bash,执行 1npm install https:&#x2F;&#x2F;github.com&#x2F;7ym0n&#x2F;hexo-asset-image --save 这是个修改过的插件，经测试无问题，使用这个插件来引入图片，而不是网上那些方法里说的用传统md语法相对路径的方法。 第二步：打开hexo的配置文件_config.yml 找到">
+<meta name="description" content="部署在博客所在文件夹下： 1npm install hexo-deployer-git --save 这是用npm安装hexo部署到git的插件，--save会把这个包写入到package.json，切换到其他电脑时可以不需要重新安装。 修改_config.yml：">
 <meta property="og:type" content="article">
-<meta property="og:title" content="HEXO插入图片">
-<meta property="og:url" content="https://fuchaow.gitee.io/2021/02/20/hexo%E5%9C%A8%E6%96%87%E7%AB%A0%E4%B8%AD%E6%B7%BB%E5%8A%A0%E5%9B%BE%E7%89%87/index.html">
+<meta property="og:title" content="hexo部署到github">
+<meta property="og:url" content="https://fuchaow.gitee.io/2021/02/21/hexo%E9%83%A8%E7%BD%B2%E5%88%B0github/index.html">
 <meta property="og:site_name" content="不会游泳的鱼">
-<meta property="og:description" content="第一步：安装插件，在hexo根目录打开Git Bash,执行 1npm install https:&#x2F;&#x2F;github.com&#x2F;7ym0n&#x2F;hexo-asset-image --save 这是个修改过的插件，经测试无问题，使用这个插件来引入图片，而不是网上那些方法里说的用传统md语法相对路径的方法。 第二步：打开hexo的配置文件_config.yml 找到">
+<meta property="og:description" content="部署在博客所在文件夹下： 1npm install hexo-deployer-git --save 这是用npm安装hexo部署到git的插件，--save会把这个包写入到package.json，切换到其他电脑时可以不需要重新安装。 修改_config.yml：">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://fuchaow.gitee.io/2021/02/20/hexo%E5%9C%A8%E6%96%87%E7%AB%A0%E4%B8%AD%E6%B7%BB%E5%8A%A0%E5%9B%BE%E7%89%87/head.jpeg">
-<meta property="article:published_time" content="2021-02-20T08:47:07.000Z">
-<meta property="article:modified_time" content="2021-02-20T08:59:23.276Z">
+<meta property="article:published_time" content="2021-02-21T06:33:25.000Z">
+<meta property="article:modified_time" content="2021-02-21T06:39:07.175Z">
 <meta property="article:author" content="FuChao W">
-<meta property="article:tag" content="Hexo">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://fuchaow.gitee.io/2021/02/20/hexo%E5%9C%A8%E6%96%87%E7%AB%A0%E4%B8%AD%E6%B7%BB%E5%8A%A0%E5%9B%BE%E7%89%87/head.jpeg">
 
 
-<link rel="canonical" href="https://fuchaow.gitee.io/2021/02/20/hexo%E5%9C%A8%E6%96%87%E7%AB%A0%E4%B8%AD%E6%B7%BB%E5%8A%A0%E5%9B%BE%E7%89%87/">
+<link rel="canonical" href="https://fuchaow.gitee.io/2021/02/21/hexo%E9%83%A8%E7%BD%B2%E5%88%B0github/">
 
 
 <script class="page-configurations">
@@ -51,7 +48,7 @@
     lang   : 'zh-CN'
   };
 </script>
-<title>HEXO插入图片 | 不会游泳的鱼</title>
+<title>hexo部署到github | 不会游泳的鱼</title>
   
 
 
@@ -149,7 +146,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -162,6 +159,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%83%A8%E7%BD%B2"><span class="nav-number">1.</span> <span class="nav-text">部署</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9-config-yml%EF%BC%9A"><span class="nav-number">1.1.</span> <span class="nav-text">修改_config.yml：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98"><span class="nav-number">2.</span> <span class="nav-text">常见问题</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -234,7 +232,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://fuchaow.gitee.io/2021/02/20/hexo%E5%9C%A8%E6%96%87%E7%AB%A0%E4%B8%AD%E6%B7%BB%E5%8A%A0%E5%9B%BE%E7%89%87/">
+    <link itemprop="mainEntityOfPage" href="https://fuchaow.gitee.io/2021/02/21/hexo%E9%83%A8%E7%BD%B2%E5%88%B0github/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -247,7 +245,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          HEXO插入图片
+          hexo部署到github
         </h1>
 
         <div class="post-meta-container">
@@ -259,7 +257,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2021-02-20 16:47:07 / 修改时间：16:59:23" itemprop="dateCreated datePublished" datetime="2021-02-20T16:47:07+08:00">2021-02-20</time>
+      <time title="创建时间：2021-02-21 14:33:25 / 修改时间：14:39:07" itemprop="dateCreated datePublished" datetime="2021-02-21T14:33:25+08:00">2021-02-21</time>
     </span>
 
   
@@ -272,16 +270,19 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p><strong>第一步：安装插件，在hexo根目录打开Git Bash,执行</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install https:&#x2F;&#x2F;github.com&#x2F;7ym0n&#x2F;hexo-asset-image --save</span><br></pre></td></tr></table></figure>
-<p>这是个修改过的插件，经测试无问题，使用这个插件来引入图片，而不是网上那些方法里说的用传统md语法相对路径的方法。</p>
-<p><strong>第二步：打开hexo的配置文件_config.yml</strong></p>
-<p>找到 post_asset_folder，把这个选项从false改成true。这样在建立文件时，<code>Hexo</code>会自动建立一个与文章同名的文件夹，这样就可以把与该文章相关的所有资源（图片）都放到那个文件夹里方便后面引用。如这里我放了一张test.jpg的图片。</p>
-<p><strong>第三步：现在就可以插入图片了</strong></p>
-<p>比如hexo new post photo之后 就在source/_posts生成photo.md文件和photo文件夹，我们把要插入的图片复制到photo文件夹内，在photo.md文件里面按markdown的标准写,（我的文件名是head.jpeg）比如</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![这是代替图片的文字，随便写](head.jpeg)</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/02/20/hexo%E5%9C%A8%E6%96%87%E7%AB%A0%E4%B8%AD%E6%B7%BB%E5%8A%A0%E5%9B%BE%E7%89%87/head.jpeg" alt="pic"></p>
-<p>这样就能成功显示了，测试下吧：hexo cl &amp;&amp; hexo g &amp;&amp; hexo d</p>
+        <h3 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h3><p>在博客所在文件夹下：</p>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git <span class="comment">--save</span></span><br></pre></td></tr></table></figure>
+<p>这是用npm安装hexo部署到git的插件，<code>--save</code>会把这个包写入到<code>package.json</code>，切换到其他电脑时可以不需要重新安装。</p>
+<h4 id="修改-config-yml："><a href="#修改-config-yml：" class="headerlink" title="修改_config.yml："></a>修改<code>_config.yml</code>：</h4><figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">deploy:</span></span><br><span class="line"><span class="symbol">    type:</span> git</span><br><span class="line"><span class="symbol">    repo:</span> https:<span class="comment">//github.com/fuchaow/fuchaow.github.io.git</span></span><br><span class="line"><span class="symbol">    branch:</span> master</span><br><span class="line"><span class="symbol">    ignore_hidden:</span> false</span><br></pre></td></tr></table></figure>
+<h3 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h3><p><strong>1. Github发送邮件 - 编译未通过</strong></p>
+<blockquote>
+<p>The page build failed for the <code>master</code> branch with the following error:</p>
+<p>The tag <code>fancybox</code> on line 77 in <code>themes/landscape/README.md</code> is not a recognized Liquid tag.</p>
+</blockquote>
+<ul>
+<li>见修改<code>_config.yml</code></li>
+<li>不要使用Git直接推送，应该在<code>_config.yml</code>中设置deploy的配置，然后使用<code>hexo d -g</code>命令进行推送</li>
+</ul>
 
     </div>
 
@@ -290,22 +291,16 @@
     
 
     <footer class="post-footer">
-          <div class="post-tags">
-              <a href="/tags/Hexo/" rel="tag"># Hexo</a>
-          </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2021/02/20/Git%E6%95%99%E7%A8%8B/" rel="prev" title="Git 教程">
-                  <i class="fa fa-chevron-left"></i> Git 教程
+                <a href="/2021/02/20/hexo%E5%9C%A8%E6%96%87%E7%AB%A0%E4%B8%AD%E6%B7%BB%E5%8A%A0%E5%9B%BE%E7%89%87/" rel="prev" title="HEXO插入图片">
+                  <i class="fa fa-chevron-left"></i> HEXO插入图片
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2021/02/21/hexo%E9%83%A8%E7%BD%B2%E5%88%B0github/" rel="next" title="hexo部署到github">
-                  hexo部署到github <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
